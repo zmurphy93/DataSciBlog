@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Supervised Learning</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script src="ml.js"></script>
+
+  <link rel="stylesheet" href="ml.css">
+
+</head>
+
+<body>
+
+  <div class="jumbotron top-box jumbotron-fluid">
+    <div class="container-fluid">
+      <div class="row">
+        <img src="images/classifier_image.png" class="img-circle photo">
+        <img src="images/clustering_image.png" class="img-circle photo">
+        <img src="images/neural_net_image.png" class="img-circle photo">
+      </div>
+    </div>
+    <h1 class="top-box-name"><strong>AI-University</strong></h1>
+    <p class="top-box-text"><strong>Classifiers</strong>, <strong>regressors</strong>, <strong>neural networks</strong> and other learning algorithms built with minimal use of specialized machine learning libraries.</p>
+    </p>
+    <p class="top-box-text">Scroll and select an algorithm from the menu on the left to learn more about it.</p>
+  </div>
+  <!-- Navigation Bar -->
+  <div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar" class="">
+      <div class="sidebar-header">
+        <h3>Supervised Learning: Classification & Regression</h3>
+      </div>
+      <ul class="list-unstyled components">
+        <li onclick="load_content('KNN', 1)" class="menu_item" data-item="#KNN">
+          K-Nearest Neighbors
+        </li>
+        <br>
+        <li onclick="load_content('LogisticRegression', 1)" class="menu_item" data-item="#LogisticRegression">
+          Logistic Regression
+        </li>
+        <br>
+        <li onclick="load_content('LDA', 1)" class="menu_item" data-item="#LDA">
+          Linear Discriminant Analysis
+        </li>
+        <br>
+        <li onclick="load_content('QDA', 1)" class="menu_item" data-item="#QDA">
+          Quadratic Discriminant Analysis
+        </li>
+        <br>
+        <li onclick="load_content('NaiveBayes', 1)" class="menu_item" data-item="#NaiveBayes">
+          Naive Bayes
+        </li>
+        <br>
+        <li onclick="load_content('SVM', 1)" class="menu_item" data-item="#SVM">
+          Support Vector Machines
+        </li>
+        <br>
+        <li onclick="load_content('DecisionTree', 1)" class="menu_item" data-item="#DecisionTree">
+          Decision Trees
+        </li>
+        <br>
+        <li onclick="load_content('RandomForest', 1)" class="menu_item" data-item="#RandomForest">
+          Random Forest
+        </li>
+        <br>
+        <li onclick="load_content('AdaBoost', 1)" class="menu_item" data-item="#AdaBoost">
+          AdaBoost
+        </li>
+        <br>
+        <li onclick="load_content('GradientBoostedTrees', 1)" class="menu_item" data-item="#GradientBoostedTrees">
+          Gradient Boosted Trees
+        </li>
+        <br>
+        <li class="menu_item" data-item="#LinearRegression">
+          Linear Regression
+        </li>
+        <br>
+        <li class="menu_item" data-item="#Lasso">
+          Lasso
+        </li>
+        <br>
+        <li class="menu_item" data-item="#Ridge">
+          Ridge Regression
+        </li>
+        <br>
+      </ul>
+
+      <div class="sidebar-header">
+        <h3>Unsupervised Learning</h3>
+      </div>
+      <ul class="list-unstyled components">
+        <li onclick="load_content('PCA', 1)" class="menu_item" data-item="#PCA">
+          Principal Components Analysis
+        </li>
+        <br>
+        <li onclick="load_content('TSNE', 1)" class="menu_item" data-item="#TSNE">
+          t-SNE
+        </li>
+        <br>
+        <li onclick="load_content('LLE', 1)" class="menu_item" data-item="#LLE">
+          Local Linear Embedding
+        </li>
+        <br>
+        <li onclick="load_content('KClus', 1)" class="menu_item" data-item="#KClus">
+          K-Means Clustering
+        </li>
+        <br>
+        <li onclick="load_content('HClus', 1)" class="menu_item" data-item="#HClus">
+          Hierarchical Clustering
+        </li>
+        <br>
+      </ul>
+
+      <div class="sidebar-header">
+        <h3>Deep Learning</h3>
+      </div>
+      <ul class="list-unstyled components">
+        <li onclick="load_content('MLP', 1)" class="menu_item" data-item="#MLP">
+          Multi-Layer Perceptron
+        </li>
+        <br>
+        <li onclick="load_content('CNN', 1)" class="menu_item" data-item="#CNN">
+          Convolutional Neural Networks
+        </li>
+        <br>
+        <li onclick="load_content('RNN', 1)" class="menu_item" data-item="#RNN">
+          Recurrent Neural Networks
+        </li>
+        <br>
+        <li onclick="load_content('TF', 1)" class="menu_item" data-item="#TF">
+          TensorFlow/Keras
+        </li>
+        <br>
+      </ul>
+    </nav>
+
+    <!-- Page Content Holder -->
+    <div id="content">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+          <button type="button" id="sidebarCollapse" class="navbar-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <svg class="svg-inline--fa fa-align-justify fa-w-14" aria-hidden="true" data-prefix="fas" data-icon="align-justify" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+              <path fill="currentColor"
+                d="M0 84V44c0-8.837 7.163-16 16-16h416c8.837 0 16 7.163 16 16v40c0 8.837-7.163 16-16 16H16c-8.837 0-16-7.163-16-16zm16 144h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 256h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0-128h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z">
+              </path>
+            </svg><!-- <i class="fas fa-align-justify"></i> -->
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="https://zmurphy93.github.io">Zach Murphy</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://zmurphy93.github.io/#aboutme">About Me</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://zmurphy93.github.io/#meteorology">Meteorology</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://zmurphy93.github.io/#datasci">Data Science</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="https://zmurphy93.github.io#ml">Machine Learning</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="https://zmurphy93.github.io/resume.html">Resume</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div id="algorithm_disc">
+
+      </div>
+    </div>
+  </div>
+  <script>
+    function readFile(file) {
+      content = "";
+      var rawFile = new XMLHttpRequest();
+      rawFile.open("GET", file, false);
+      rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4) {
+          if (rawFile.status === 200 || rawFile.status == 0) {
+            var allText = rawFile.responseText;
+            content = allText;
+          }
+        }
+      }
+      rawFile.send(null);
+      return content;
+    }
+
+    function load_content(file, click) {
+      document.getElementById("algorithm_disc").innerHTML = readFile('notebooks_and_pages/html_pages/' + file + '.html');
+
+      if (click == 1) {
+        $([document.documentElement, document.body]).animate({
+          scrollTop: $("#algorithm_disc").offset().top - 100
+        }, 500);
+      }
+    }
+
+    load_content('KNN', 0);
+  </script>
+</body>
+
+</html>
