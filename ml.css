@@ -1,4 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Zilla+Slab&display=swap);
+@font-face{
+   font-family:'Zilla Slab', serif;
+   src: url(https://fonts.googleapis.com/css?family=Zilla+Slab&display=swap)
+ }
 
 body{
   font-family: 'Zilla Slab', serif;
@@ -12,23 +16,95 @@ body{
 /**"Jumbotron" Content**/
 /**********************/
 .top-box {
-  margin: 0;
-  background: #c94b4b;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #4b134f, #c94b4b);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #4b134f, #c94b4b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  margin: auto;
+  background-color: black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
 }
 
+.datasci-card {
+    font-family: 'Zilla Slab', serif !important ;
+    text-align: center;
+    color: #000000;
+    width: 100%;
+    height: 300px;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    background-color: #FFFFFF;
+    margin-left: 10px;
+    margin-right :10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-style:solid;
+    border-width:3px;
+    border-color:#000000;
+    box-shadow: 0 4px 8px 0 rgba(255,255,255, 0.9), 0 6px 20px 0 rgba(255,255,255, 0.9);
+    -moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px;
+  }
+  .flipper {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+    perspective: 1000px;
+  }
+  /* flip the pane when hovered */
+  .flipper.flip .card {
+    transform: rotateY(180deg);
+  }
+  .front,
+  .back {
+    font-family: 'Zilla Slab', serif !important ;
+    width: 100%;
+    padding: 5px;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  /* front pane, placed above back */
+  .front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+    height: 100%;
+  }
+  /* back, initially hidden pane */
+  .back {
+    transform: rotateY(180deg);
+    height: 100%;
+  }
+  .goback {
+    position: absolute;
+    bottom: 0px;
+    padding-left: 20px;
+    left: 0px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+.col-sm-8 {
+  margin-bottom: 30px;
+}
+
+.head-text{
+  color:white;
+}
 .top-box-name {
   color: white !important;
   text-align: center;
-  font-size: 50px;
+  font-size: 72px;
+  font-weight: 1000;
+  padding-top:200px;
 }
+
 .top-box-text{
   color: #d9d9db !important;
   text-align: center;
   font-size: 28px;
 }
-
 .photo {
   display: block;
   margin-left: auto;
@@ -62,11 +138,10 @@ height: 300px;
 /***Bottom Section********/
 /**************************/
 p {
-    font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
-    font-weight: 300;
+
     line-height: 1.7em;
-    color: #999;
+    color: black;
 }
 
 a, a:hover, a:focus {
@@ -112,7 +187,7 @@ a, a:hover, a:focus {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #593b73;
+    background: #3a424a;
     color: #fff;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
     transform-origin: bottom left;
@@ -127,7 +202,7 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #38234a;
+    background: #292d3e;
 }
 
 #sidebar ul.components {

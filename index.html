@@ -26,26 +26,52 @@
 </head>
 
 <body>
+  <div class="container-fluid top-box">
+    <h1 class="top-box-name"><strong>DataSciBlog</strong></h1>
+    <hr class="separator" />
+    <h3 class="text-30 text-center head-text">Recent Posts</h3>
+    <div class="row">
+      <div class="flipper col-sm-4">
+        <div class="card datasci-card d-flex justify-content-around flex-direction:column">
+          <div class="front">
+            <p><strong>Logistic Regression Classifier From Scratch</strong></p>
+            <p>May 12, 2020</p>
+            <p>In this post, we code a basic regularized logistic regression algorithm from scratch, using a simple gradient descent learning algorithm.</p>
+            <button class="btn btn-default bottom" type="submit">Learn More</button>
+          </div>
+        </div>
+      </div>
+      <div class="flipper col-sm-4">
+        <div class="card datasci-card d-flex justify-content-around flex-direction:column">
+          <div class="front">
+            <p><strong>Learning Algorithms for Linear Models</strong></p>
+            <p>May 15, 2020</p>
+            <p>Many linear classifiers must apply an optimization algorithm in order to find the best weights
+              for a set of coefficients. Here, we examine several commonly used ones, including SAG, BFGS, and CG.</p>
+            <button class="btn btn-default bottom" type="submit">Learn More</button>
+          </div>
+        </div>
+      </div>
+      <div class="flipper col-sm-4">
+        <div class="card datasci-card d-flex justify-content-around flex-direction:column">
+          <div class="front">
 
-  <div class="jumbotron top-box jumbotron-fluid">
-    <div class="container-fluid">
-      <div class="row">
-        <img src="images/classifier_image.png" class="img-circle photo">
-        <img src="images/clustering_image.png" class="img-circle photo">
-        <img src="images/neural_net_image.png" class="img-circle photo">
+            <p><strong>Creating a Linear Regression Classifier From Scratch</strong></p>
+
+            <p>May 16, 2020</p>
+
+            <p>In this post, we create one of the simplest regression algorithms: linear regression!</p>
+            <button class="btn btn-default bottom" type="submit">Learn More</button>
+          </div>
+        </div>
       </div>
     </div>
-    <h1 class="top-box-name"><strong>AI-University</strong></h1>
-    <p class="top-box-text"><strong>Classifiers</strong>, <strong>regressors</strong>, <strong>neural networks</strong> and other learning algorithms built with minimal use of specialized machine learning libraries.</p>
-    </p>
-    <p class="top-box-text">Scroll and select an algorithm from the menu on the left to learn more about it.</p>
   </div>
-  <!-- Navigation Bar -->
   <div class="wrapper">
     <!-- Sidebar Holder -->
     <nav id="sidebar" class="">
       <div class="sidebar-header">
-        <h3>Supervised Learning: Classification & Regression</h3>
+        <h3>Supervised Learning</h3>
       </div>
       <ul class="list-unstyled components">
         <li onclick="load_content('KNN', 1)" class="menu_item" data-item="#KNN">
@@ -173,23 +199,9 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" href="https://zmurphy93.github.io">Zach Murphy</a>
+                <a class="nav-link" href="https://zmurphy93.github.io">About Zach Murphy</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://zmurphy93.github.io/#aboutme">About Me</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://zmurphy93.github.io/#meteorology">Meteorology</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://zmurphy93.github.io/#datasci">Data Science</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="https://zmurphy93.github.io#ml">Machine Learning</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="https://zmurphy93.github.io/resume.html">Resume</a>
-              </li>
+
 
             </ul>
           </div>

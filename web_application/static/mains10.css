@@ -1,0 +1,110 @@
+@import url(https://fonts.googleapis.com/css?family=Zilla+Slab&display=swap);
+
+html{
+overflow-x: hidden;
+height: 100%}
+
+.jumbotron{
+overflow-x: hidden;
+background-image: url('/static/neurons3.png');
+color: white;
+background-size: cover;
+background-repeat: no-repeat;
+width: 100%;
+margin-bottom: 0px;
+}
+
+
+body{
+overflow-x: hidden;
+  font-family: 'Zilla Slab', serif;
+  width: 100%;
+  height:100%;
+}
+
+.controls {
+    overflow-x: hidden;
+    background-color: black;
+    color: #61afef;
+    padding-top:20px;
+    padding-bottom:20px;
+    font-size: 22px;
+}
+
+#algorithms{
+background-color: #323639;
+color: white;
+width: 75%;
+}
+
+.bottomsection{
+overflow-x: hidden;
+overflow-y: hidden;
+background-color: #424b6b;
+color: white;
+width: 100%;
+height: 100%;
+display: flex;
+margin-right:0px;
+margin-left:0px;
+}
+
+.algtitle{
+font-weight: 700;
+color:#44ccf2;
+}
+
+
+.form-group{
+display: flex;
+}
+
+
+.all_forms{
+background-color:#262b3d;
+color: white;
+margin: 30px;
+padding-bottom: 30px;
+overflow-y: scroll;
+overflow-x: hidden;
+
+}
+
+.algo_label{
+color: #44ccf2;
+}
+
+#Submit{
+width: 66%;
+}
+
+.formsetting{
+margin-top:10px;
+margin-bottom:10px;
+padding-top:10px;
+padding-bottom:10px;
+}
+
+.footer{
+background-color: #323639;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #262b3d; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #676a77; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #515563; 
+}

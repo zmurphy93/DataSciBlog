@@ -92,11 +92,6 @@ class LogisticRegressionClassifier():
         array is set to np.shape(Xtrain)[1] where Xtrain is a set of features 
         from a training dataset.
         """
-        if self.use_intercept==True:
-            Xtrain = np.c_[np.ones([np.shape(Xtrain)[0], 1]), Xtrain]
-        else:
-            Xtrain = Xtrain
-        
         if self.initialization_scheme=="zeroes":
             self.weights = np.zeros(np.shape(Xtrain)[1]) 
         elif self.initialization_scheme=="random":
@@ -107,6 +102,7 @@ class LogisticRegressionClassifier():
             self.weights = np.random.uniform(-1 * bound, bound, (n_features))
         else:
             print("Invalid initialization. Please select from 'zeroes', 'random', or'he'.")
+        return self.weights
             
     def _sigmoid(self, Xtrain):
         """ Sigmoid transformation.
@@ -120,7 +116,6 @@ class LogisticRegressionClassifier():
         Xtrain : array-like, shape (n_samples, n_features)
             Training data.
        """
-       
         z = np.dot(Xtrain, self.weights)
         s = 1.0 / (1 + np.exp(-z))
         return s 
@@ -183,8 +178,13 @@ class LogisticRegressionClassifier():
          ytrain : array, shape (n_samples,)
             Target values.
          """
+        if self.use_intercept==True:
+            Xtrain = np.c_[np.ones([np.shape(Xtrain)[0], 1]), Xtrain]
+        else:
+            Xtrain = Xtrain
         m = Xtrain.shape[1]
-        self._initialize_weights(Xtrain, self.initialization_scheme)
+        weights = self._initialize_weights(Xtrain, self.initialization_scheme, self.use_intercept)
+        print(weights)
         self.costs = []
         for i in range(self.iterations):
                 s = self._sigmoid(Xtrain)
@@ -226,4 +226,20 @@ class LogisticRegressionClassifier():
                 p=0
                 det_pred.append(0)
         return det_pred
-    
+  
+# =============================================================================
+# Testing section below    
+# =============================================================================
+if __name__ == "__main__":
+    import pandas as pd
+    from sklearn.preprocessing import StandardScaler
+    data=pd.read_csv("C:/Users/zmurp/github/AI_University/datasets/diabetes.csv")
+    data.median()
+    dataset = data.fillna(data.median())
+    X = dataset.iloc[:500, 0:8].values
+    ytrain = dataset.iloc[:500, 8].values
+    scaler = StandardScaler()
+    Xtrain = scaler.fit_transform(X)
+
+    Xtest=scaler.fit_transform(dataset.iloc[500:, 0:8].values)
+    ytest=dataset.iloc[500:, 8].values

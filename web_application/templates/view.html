@@ -1,0 +1,154 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+{{super()}}
+<style>
+    .appsize { width: 800px }
+</style>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "AMS"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{
+  url_for('static', filename='jquery.js') }}">\x3C/script>')
+</script>
+  
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='mains10.css') }}">
+
+<script type="text/javascript" src=
+"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+{% endblock %}
+
+{% block content %}
+<body>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <center><h1 class="display-4">Classifier Laboratory</h1></center>
+    <center><p class="lead">An interactive application to explore Scikit-Learn, Keras, and ML-Ens Classifiers</p></center>
+    <br>
+    <center><p class="lead">Select a classifier below to get started.</p></center>
+  </div>
+</div>
+<div class="row">
+    <div class="controls">
+    <form id="form1" action="/algorithm" method="POST">
+    <div class="col-sm-2">
+                    <fieldset id="Group3" name="Group3">
+                            <select class="form-control" id="algorithms"  onchange="this.form.submit()" name="algorithms">
+                                <option value= "" selected disabled>Linear Models</option>
+                                <option value="Ridge">Ridge Classifier</option>
+                                <option value="L1 Logistic Regression">L1-Logistic Regression</option>
+                                <option value="L2 Logistic Regression">L2-Logistic Regression</option>
+                                <option value="Stochastic Gradient Descent">Stochastic Gradient Descent</option>
+                                <option value="Perceptron">Perceptron</option>
+                            </select>    
+                    </fieldset>
+    </div>
+    <div class="col-sm-2">
+                    <fieldset id="Group4" name="Group4">
+                            <select class="form-control" id="algorithms"  onchange="this.form.submit()" name="algorithms">
+                                <option value= "" selected disabled>Neighbor-Based Models</option>
+                                <option value="K-Nearest Neighbors">K-Nearest Neighbors</option>
+                                <option value="Radius Neighbors"> Radius Neighbors</option>
+                            </select>    
+                    </fieldset>
+                    </div>
+                    <div class="col-sm-2">
+                    <fieldset id="Group5" name="Group5">
+                            <select class="form-control" id="algorithms"  onchange="this.form.submit()" name="algorithms">
+                                <option value= "" selected disabled>Support Vector Models</option>
+                                <option value="L1 LinearSVM">L1 Linear Support Vector Machine</option>
+                                <option value="L2 LinearSVM">L2 Linear Support Vector Machine</option>
+                                <option value="Support Vector Classifier"> Support Vector Machine w/ Kernel</option>
+                            </select>    
+                    </fieldset>
+                    </div>
+                    <div class="col-sm-2">
+                    <fieldset id="Group6" name="Group6">
+                            <select class="form-control" id="algorithms"  onchange="this.form.submit()" name="algorithms">
+                                <option value= "" selected disabled>Ensemble Models</option>
+                                <option value="Bagging">Bagging Classifier</option>
+                                <option value="Random Forest">Random Forest</option>
+                                <option value="AdaBoost">AdaBoost</option>
+                                <option value="GBRT">Gradient Boosting</option>
+                                <option value="XGBoost">XG-Boost</option>
+                            </select>    
+                    </fieldset>
+                    </div>
+                    <div class="col-sm-2">
+                    <fieldset id="Group7" name="Group7">
+                            <select class="form-control" id="algorithms"  onchange="this.form.submit()" name="algorithms">
+                                <option value= "" selected disabled>Misc. Models</option>
+                                <option value="Linear Discriminant Analysis">Linear Discriminant Analysis</option>
+                                <option value="Quadratic Discriminant Analysis">Quadratic Discriminant Analysis</option>
+                                <option value="GaussianNB">Naive Bayes (Gaussian)</option>
+                                <option value="Gaussian Processes">Gaussian Processes</option>
+                                <option value="Decision Tree">Decision Tree</option>
+                            </select>    
+                    </fieldset>
+                    </div>
+                    <div class="col-sm-2">
+                    <fieldset id="Group8" name="Group8">
+                            <select class="form-control" id="algorithms"  onchange="this.form.submit()" name="algorithms">
+                                <option value= "" selected disabled>Neural Networks</option>
+                                <option value="Keras">Keras Neural Network</option>
+                                <option value="MLP">SK-Learn Neural Network</option>
+                            </select>    
+                    </fieldset>
+                    </div>
+                </form>
+            </div>
+</div>
+<div class="row bottomsection">
+<div class="col-sm-3 all_forms">
+<form class="navbar-form" method="post" action="">
+  <div class="form-group col-sm-12">
+  {% if algorithm is defined %}
+      <h2 class="algtitle">{{ algorithm }} Classifier</h2>
+      <hr>
+      {% for field in form %}
+      <div class="row formsetting">
+      <div class="input-group appsize col-sm-4">
+      <div class="col-sm-4">
+      <span class= "algo_label">
+          {{field.label}}
+      </span>
+      <br>
+      {{ field(class_="form-control") }}
+      </div>
+      <br>
+      {% if field.errors %}
+        {% for error in field.errors %}
+          <div class="col-sm-2">
+            <div style="color: red;">{{ error }}</div>
+          </div>
+        {% endfor %}
+      {% endif %}
+     </div>
+    </div>
+  {% endfor %}
+  {%endif %}
+<br/>
+</form>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer">
+      <div class="container">
+        <span class="text-muted">By: Zach Murphy.</span>
+      </div>
+    </footer>
+</body>
+</html>
+{% endblock %}
